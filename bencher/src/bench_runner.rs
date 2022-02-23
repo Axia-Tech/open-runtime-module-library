@@ -11,7 +11,7 @@ pub fn run<B: Block>(wasm_code: Vec<u8>) -> std::result::Result<Vec<u8>, String>
 		sc_client_db::BenchmarkingState::<B>::new(Default::default(), Default::default(), false, false).unwrap();
 	let mut ext = Ext::<_, NumberFor<B>, _>::new(&mut overlay, &mut cache, &state, None, None);
 
-	let mut host_functions = sp_io::SubstrateHostFunctions::host_functions();
+	let mut host_functions = sp_io::AxlibHostFunctions::host_functions();
 	host_functions.append(&mut frame_benchmarking::benchmarking::HostFunctions::host_functions());
 	host_functions.append(&mut super::bencher::HostFunctions::host_functions());
 

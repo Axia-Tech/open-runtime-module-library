@@ -385,7 +385,7 @@ pub mod module {
 			// We can relax this assumption in the future
 			ensure!(fee.id == asset.id, Error::<T>::DistincAssetAndFeeId);
 			// Workaround issue of https://github.com/axia-tech/axia/pull/4492
-			// TODO: remove this on next Substrate version
+			// TODO: remove this on next Axlib version
 			ensure!(
 				fungible_amount(&asset).checked_add(fungible_amount(&fee)).is_some(),
 				ArithmeticError::Overflow
