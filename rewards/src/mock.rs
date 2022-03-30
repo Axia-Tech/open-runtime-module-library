@@ -21,7 +21,7 @@ pub type CurrencyId = u32;
 pub const ALICE: AccountId = 1;
 pub const BOB: AccountId = 2;
 pub const CAROL: AccountId = 3;
-pub const DOT_POOL: PoolId = 1;
+pub const AXC_POOL: PoolId = 1;
 pub const NATIVE_COIN: CurrencyId = 0;
 pub const STABLE_COIN: CurrencyId = 1;
 
@@ -53,6 +53,7 @@ impl frame_system::Config for Runtime {
 	type SystemWeightInfo = ();
 	type SS58Prefix = ();
 	type OnSetCode = ();
+	type MaxConsumers = frame_support::traits::ConstU32<16>;
 }
 
 thread_local! {

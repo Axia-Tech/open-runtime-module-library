@@ -1,5 +1,3 @@
-cargo-features = ["resolver"]
-
 [workspace]
 members = [
 	"auction",
@@ -25,73 +23,75 @@ members = [
 	"weight-gen",
 	"weight-meter",
 ]
+
 resolver = "2"
 
 [profile.dev]
 split-debuginfo = "unpacked"
 
-# [patch.'https://github.com/axia-tech/axlib']
-# frame-benchmarking = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# frame-support = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# frame-system = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# pallet-authority-discovery = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# pallet-authorship = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# pallet-balances = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# pallet-elections-phragmen = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# pallet-scheduler = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# pallet-session = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# pallet-staking = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# pallet-timestamp = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# pallet-treasury = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# pallet-vesting = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sc-client-api = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sc-client-db = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sc-executor = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sc-executor-common = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sc-executor-wasmi = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sc-utils = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-api = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-application-crypto = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-arithmetic = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-authority-discovery = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-authorship = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-blockchain = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-consensus = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-core = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-debug-derive = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-externalities = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-inherents = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-io = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-keystore = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-npos-elections = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-panic-handler = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-runtime = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-runtime-interface = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-session = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-staking = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-state-machine = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-std = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-storage = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-tasks = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-timestamp = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-trie = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-version = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-# sp-wasm-interface = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
+[patch.'https://github.com/axtend/axlib']
+frame-benchmarking = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+frame-support = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+frame-system = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-authority-discovery = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-authorship = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-babe = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-balances = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-elections-phragmen = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-scheduler = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-session = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-staking = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-timestamp = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-treasury = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-vesting = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sc-client-api = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sc-client-db = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sc-executor = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sc-executor-common = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sc-executor-wasmi = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sc-utils = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-api = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-application-crypto = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-arithmetic = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-authority-discovery = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-authorship = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-blockchain = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-consensus = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-core = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-debug-derive = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-externalities = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-inherents = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-io = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-keystore = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-npos-elections = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-panic-handler = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-runtime = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-runtime-interface = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-session = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-staking = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-state-machine = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-std = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-storage = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-tasks = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-timestamp = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-trie = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-version = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+sp-wasm-interface = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
 
-# [patch.'https://github.com/paritytech/cumulus']
-# cumulus-primitives-core = { git = "https://github.com/axia-tech/cumulus", branch = "master" }
-# allychain-info = { git = "https://github.com/axia-tech/cumulus", branch = "master" }
-# cumulus-pallet-dmp-queue = { git = "https://github.com/axia-tech/cumulus", branch = "master" }
-# cumulus-pallet-xcmp-queue = { git = "https://github.com/axia-tech/cumulus", branch = "master" }
-# cumulus-pallet-xcm = { git = "https://github.com/axia-tech/cumulus", branch = "master" }
+[patch.'https://github.com/axtend/cumulus']
+cumulus-primitives-core = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus" }
+allychain-info = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus" }
+cumulus-pallet-dmp-queue = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus" }
+cumulus-pallet-xcmp-queue = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus" }
+cumulus-pallet-xcm = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus" }
 
-# [patch.'https://github.com/axia-tech/axia']
-# xcm = { git = "https://github.com/axia-tech/axia", branch = "master" }
-# xcm-executor = { git = "https://github.com/axia-tech/axia", branch = "master" }
-# xcm-builder = { git = "https://github.com/axia-tech/axia", branch = "master" }
-# pallet-xcm = { git = "https://github.com/axia-tech/axia", branch = "master" }
-# axia-core-primitives = { git = "https://github.com/axia-tech/axia", branch = "master" }
-# axia-runtime-allychains = { git = "https://github.com/axia-tech/axia", branch = "master" }
-# axia-allychain = { git = "https://github.com/axia-tech/axia", branch = "master" }
-# axia-primitives = { git = "https://github.com/axia-tech/axia", branch = "master" }
-# xcm-simulator = { git = "https://github.com/axia-tech/axia", branch = "master" }
+[patch.'https://github.com/axtend/axia']
+xcm = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+xcm-executor = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+xcm-builder = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+pallet-xcm = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+axia-core-primitives = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+axia-runtime-allychains = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+axia-allychain = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+axia-primitives = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+xcm-simulator = { git = "https://github.com/axia-tech/axia", branch = "axia" }

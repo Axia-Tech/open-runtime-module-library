@@ -1,4 +1,4 @@
-//! Macro for benchmarking a Axlib runtime. A fork of `frame-benchmarking`
+//! Macro for benchmarking a Substrate runtime. A fork of `frame-benchmarking`
 //! pallet.
 
 #![cfg_attr(not(feature = "std"), no_std)]
@@ -24,7 +24,7 @@ pub use sp_runtime::traits::Zero;
 #[doc(hidden)]
 pub use sp_std::{self, boxed::Box, prelude::Vec, str, vec};
 #[doc(hidden)]
-pub use sp_storage::TrackedStorageKey;
+pub use sp_storage::{StateVersion, TrackedStorageKey};
 
 /// Whitelist the given account.
 #[macro_export]
@@ -657,7 +657,6 @@ macro_rules! benchmark_backend {
 // Every variant must implement [`BenchmarkingSetup`].
 //
 // ```nocompile
-// 
 // struct Transfer;
 // impl BenchmarkingSetup for Transfer { ... }
 //
@@ -827,7 +826,7 @@ macro_rules! impl_benchmark {
 
 					// Time the storage root recalculation.
 					let start_storage_root = $crate::benchmarking::current_time();
-					$crate::storage_root();
+					$crate::storage_root($crate::StateVersion::V1);
 					let finish_storage_root = $crate::benchmarking::current_time();
 					let elapsed_storage_root = finish_storage_root - start_storage_root;
 

@@ -16,11 +16,11 @@ jobs:
       uses: actions-rs/toolchain@v1
       with:
         profile: minimal
-        toolchain: nightly-2021-01-07
+        toolchain: nightly-2021-11-07
         override: true
         default: true
     - name: Install cargo-unleash
-      run: cargo install cargo-unleash --git https://github.com/xlc/cargo-unleash.git # https://github.com/axia-tech/cargo-unleash/pull/38
+      run: cargo install cargo-unleash --git https://github.com/xlc/cargo-unleash.git # https://github.com/axiatech/cargo-unleash/pull/38
     - name: Prepare
       run: make Cargo.toml
     - name: Cargo unleash check

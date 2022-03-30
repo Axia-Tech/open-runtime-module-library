@@ -5,46 +5,46 @@ repository = "https://github.com/open-web3-stack/open-runtime-module-library/tre
 license = "Apache-2.0"
 version = "0.4.1-dev"
 authors = ["Acala Developers"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
-scale-info = { git = "https://github.com/axia-tech/scale-info", branch = "v1.0.0", version = "1.0", default-features = false, features = ["derive"] }
+scale-info = { version = "1.0", default-features = false, features = ["derive"] }
 serde = { version = "1.0.124", optional = true }
-codec = { git = "https://github.com/axia-tech/axia-scale-codec", branch = "v2.3.1", package = "axia-scale-codec", version = "2.3.1", default-features = false }
-sp-runtime = { git = "https://github.com/axia-tech/axlib", branch = "dev", default-features = false }
-sp-io = { git = "https://github.com/axia-tech/axlib", branch = "dev", default-features = false }
-sp-std = { git = "https://github.com/axia-tech/axlib", branch = "dev", default-features = false }
+codec = { package = "parity-scale-codec", version = "2.3.1", default-features = false }
+sp-runtime = { git = "https://github.com/axia-tech/axlib", branch = "axlib", default-features = false }
+sp-io = { git = "https://github.com/axia-tech/axlib", branch = "axlib", default-features = false }
+sp-std = { git = "https://github.com/axia-tech/axlib", branch = "axlib", default-features = false }
 
-frame-support = { git = "https://github.com/axia-tech/axlib", branch = "dev", default-features = false }
-frame-system = { git = "https://github.com/axia-tech/axlib", branch = "dev", default-features = false }
+frame-support = { git = "https://github.com/axia-tech/axlib", branch = "axlib", default-features = false }
+frame-system = { git = "https://github.com/axia-tech/axlib", branch = "axlib", default-features = false }
 
-cumulus-primitives-core = { git = "https://github.com/axia-tech/cumulus", branch = "master", default-features = false }
+cumulus-primitives-core = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus", default-features = false }
 
-xcm = { git = "https://github.com/axia-tech/axia", branch = "dev", default-features = false }
-xcm-executor = { git = "https://github.com/axia-tech/axia", branch = "dev", default-features = false }
+xcm = { git = "https://github.com/axia-tech/axia", branch = "axia", default-features = false }
+xcm-executor = { git = "https://github.com/axia-tech/axia", branch = "axia", default-features = false }
 
 orml-xcm-support = { path = "../xcm-support", default-features = false }
 orml-traits = { path = "../traits", default-features = false}
 
 [dev-dependencies]
-sp-core = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
-pallet-balances = { git = "https://github.com/axia-tech/axlib", branch = "dev" }
+sp-core = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
+pallet-balances = { git = "https://github.com/axia-tech/axlib", branch = "axlib" }
 
 # cumulus
-cumulus-primitives-core = { git = "https://github.com/axia-tech/cumulus", branch = "master" }
-cumulus-pallet-dmp-queue = { git = "https://github.com/axia-tech/cumulus", branch = "master" }
-cumulus-pallet-xcmp-queue = { git = "https://github.com/axia-tech/cumulus", branch = "master" }
-cumulus-pallet-xcm = { git = "https://github.com/axia-tech/cumulus", branch = "master" }
-allychain-info = { git = "https://github.com/axia-tech/cumulus", branch = "master" }
+cumulus-primitives-core = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus" }
+cumulus-pallet-dmp-queue = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus" }
+cumulus-pallet-xcmp-queue = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus" }
+cumulus-pallet-xcm = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus" }
+allychain-info = { git = "https://github.com/axia-tech/cumulus", branch = "cumulus" }
 
 # axia
-axia-allychain = { git = "https://github.com/axia-tech/axia", branch = "dev" }
-xcm = { git = "https://github.com/axia-tech/axia", branch = "dev" }
-xcm-executor = { git = "https://github.com/axia-tech/axia", branch = "dev" }
-xcm-builder = { git = "https://github.com/axia-tech/axia", branch = "dev" }
-pallet-xcm = { git = "https://github.com/axia-tech/axia", branch = "dev" }
-axia-runtime-allychains = { git = "https://github.com/axia-tech/axia", branch = "dev" }
-xcm-simulator = { git = "https://github.com/axia-tech/axia", branch = "dev" }
+axia-allychain = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+xcm = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+xcm-executor = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+xcm-builder = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+pallet-xcm = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+axia-runtime-allychains = { git = "https://github.com/axia-tech/axia", branch = "axia" }
+xcm-simulator = { git = "https://github.com/axia-tech/axia", branch = "axia"}
 
 orml-tokens = { path = "../tokens" }
 orml-xcm = { path = "../xcm" }

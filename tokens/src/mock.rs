@@ -21,7 +21,7 @@ pub type AccountId = AccountId32;
 pub type CurrencyId = u32;
 pub type Balance = u64;
 
-pub const DOT: CurrencyId = 1;
+pub const AXC: CurrencyId = 1;
 pub const BTC: CurrencyId = 2;
 pub const ETH: CurrencyId = 3;
 pub const ALICE: AccountId = AccountId32::new([0u8; 32]);
@@ -63,6 +63,7 @@ impl frame_system::Config for Runtime {
 	type SystemWeightInfo = ();
 	type SS58Prefix = ();
 	type OnSetCode = ();
+	type MaxConsumers = frame_support::traits::ConstU32<16>;
 }
 
 thread_local! {
@@ -102,10 +103,11 @@ impl ContainsLengthBound for TenToFourteen {
 parameter_types! {
 	pub const ProposalBond: Permill = Permill::from_percent(5);
 	pub const ProposalBondMinimum: u64 = 1;
+	pub const ProposalBondMaximum: u64 = 5;
 	pub const SpendPeriod: u64 = 2;
 	pub const Burn: Permill = Permill::from_percent(50);
 	pub const TreasuryPalletId: PalletId = PalletId(*b"py/trsry");
-	pub const GetTokenId: CurrencyId = DOT;
+	pub const GetTokenId: CurrencyId = AXC;
 	pub const MaxApprovals: u32 = 100;
 }
 
@@ -118,6 +120,7 @@ impl pallet_treasury::Config for Runtime {
 	type OnSlash = ();
 	type ProposalBond = ProposalBond;
 	type ProposalBondMinimum = ProposalBondMinimum;
+	type ProposalBondMaximum = ProposalBondMaximum;
 	type SpendPeriod = SpendPeriod;
 	type Burn = Burn;
 	type BurnDestination = ();
@@ -215,7 +218,7 @@ parameter_type_with_key! {
 		#[allow(clippy::match_ref_pats)] // false positive
 		match currency_id {
 			&BTC => 1,
-			&DOT => 2,
+			&AXC => 2,
 			_ => 0,
 		}
 	};

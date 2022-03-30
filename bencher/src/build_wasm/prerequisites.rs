@@ -1,6 +1,6 @@
-// This file is part of Axlib.
+// This file is part of Substrate.
 
-// Copyright (C) 2019-2021 AXIA Technologies (UK) Ltd.
+// Copyright (C) 2019-2021 Axia Technologies (UK) Ltd.
 // SPDX-License-Identifier: Apache-2.0
 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -199,7 +199,7 @@ fn create_check_toolchain_project(project_dir: &Path) {
 			[package]
 			name = "wasm-test"
 			version = "1.0.0"
-			edition = "2018"
+			edition = "2021"
 			build = "build.rs"
 
 			[lib]

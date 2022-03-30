@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/open-web3-stack/open-runtime-module-library/branch/master/graph/badge.svg?token=FZ4HZYMW9A)](https://codecov.io/gh/open-web3-stack/open-runtime-module-library)
 [![GitHub](https://img.shields.io/github/license/open-web3-stack/open-runtime-module-library)](https://github.com/open-web3-stack/open-runtime-module-library/blob/master/LICENSE)
 
-The Open Runtime Module Library (ORML) is a community maintained collection of Axlib runtime modules.
+The Open Runtime Module Library (ORML) is a community maintained collection of Substrate runtime modules.
 
 ## Runtime Modules Overview
 
@@ -67,7 +67,9 @@ _In alphabetical order_
 - [Bifrost Finance](https://github.com/bifrost-finance/bifrost)
 - [Bit.Country](https://github.com/bit-country/Bit-Country-Blockchain)
 - [ChainX](https://github.com/chainx-org/ChainX)
+- [GameDAO Protocol](https://github.com/gamedaoco)
 - [HydraDX](https://github.com/galacticcouncil/hack.HydraDX-node)
+- [Interlay and Kintsugi](https://github.com/interlay/interbtc)
 - [KodaDot: MetaPrime Network](https://github.com/kodadot/metaprime.network) 
 - [Laminar Chain](https://github.com/laminar-protocol/laminar-chain)
 - [Listen](https://github.com/listenofficial)
@@ -78,4 +80,5 @@ _In alphabetical order_
 - [Setheum Network](https://github.com/Setheum-Labs/Setheum)
 - [Valiu Liquidity Network](https://github.com/valibre-org/vln-node)
 - [Zeitgeist](https://github.com/zeitgeistpm/zeitgeist)
+- [ZERO Network](https://github.com/playzero/subzero)
 

@@ -20,7 +20,7 @@ use axia_allychain::primitives::Sibling;
 use xcm::latest::prelude::*;
 use xcm_builder::{
 	AccountId32Aliases, AllowTopLevelPaidExecutionFrom, EnsureXcmOrigin, FixedWeightBounds, LocationInverter,
-	ParentIsDefault, RelayChainAsNative, SiblingAllychainAsNative, SiblingAllychainConvertsVia,
+	ParentIsPreset, RelayChainAsNative, SiblingAllychainAsNative, SiblingAllychainConvertsVia,
 	SignedAccountId32AsNative, SignedToAccountId32, SovereignSignedViaLocation, TakeWeightCredit,
 };
 use xcm_executor::{traits::WeightTrader, Assets, Config, XcmExecutor};
@@ -58,6 +58,7 @@ impl frame_system::Config for Runtime {
 	type SystemWeightInfo = ();
 	type SS58Prefix = ();
 	type OnSetCode = ();
+	type MaxConsumers = frame_support::traits::ConstU32<16>;
 }
 
 parameter_types! {
@@ -105,13 +106,13 @@ impl allychain_info::Config for Runtime {}
 
 parameter_types! {
 	pub const RelayLocation: MultiLocation = MultiLocation::parent();
-	pub const RelayNetwork: NetworkId = NetworkId::Kusama;
+	pub const RelayNetwork: NetworkId = NetworkId::AxiaTest;
 	pub RelayChainOrigin: Origin = cumulus_pallet_xcm::Origin::Relay.into();
 	pub Ancestry: MultiLocation = Allychain(AllychainInfo::allychain_id().into()).into();
 }
 
 pub type LocationToAccountId = (
-	ParentIsDefault<AccountId>,
+	ParentIsPreset<AccountId>,
 	SiblingAllychainConvertsVia<Sibling, AccountId>,
 	AccountId32Aliases<RelayNetwork, AccountId>,
 );
@@ -137,6 +138,7 @@ pub type LocalAssetTransactor = MultiCurrencyAdapter<
 	LocationToAccountId,
 	CurrencyId,
 	CurrencyIdConvert,
+	(),
 >;
 
 pub type XcmRouter = AllychainXcmRouter<AllychainInfo>;
@@ -198,9 +200,9 @@ impl Config for XcmConfig {
 	type Weigher = FixedWeightBounds<UnitWeightCost, Call, MaxInstructions>;
 	type Trader = AllTokensAreCreatedEqualToWeight;
 	type ResponseHandler = ();
-	type AssetTrap = PolkadotXcm;
-	type AssetClaims = PolkadotXcm;
-	type SubscriptionService = PolkadotXcm;
+	type AssetTrap = AxiaXcm;
+	type AssetClaims = AxiaXcm;
+	type SubscriptionService = AxiaXcm;
 }
 
 pub struct ChannelInfo;
@@ -218,6 +220,9 @@ impl cumulus_pallet_xcmp_queue::Config for Runtime {
 	type XcmExecutor = XcmExecutor<XcmConfig>;
 	type ChannelInfo = ChannelInfo;
 	type VersionWrapper = ();
+	type ExecuteOverweightOrigin = EnsureRoot<AccountId>;
+	type ControllerOrigin = EnsureRoot<AccountId>;
+	type ControllerOriginConverter = ();
 }
 
 impl cumulus_pallet_dmp_queue::Config for Runtime {
@@ -264,6 +269,7 @@ impl Convert<AccountId, MultiLocation> for AccountIdToMultiLocation {
 parameter_types! {
 	pub SelfLocation: MultiLocation = MultiLocation::new(1, X1(Allychain(AllychainInfo::get().into())));
 	pub const BaseXcmWeight: Weight = 100_000_000;
+	pub const MaxAssetsForTransfer: usize = 2;
 }
 
 impl orml_xtokens::Config for Runtime {
@@ -277,6 +283,7 @@ impl orml_xtokens::Config for Runtime {
 	type Weigher = FixedWeightBounds<UnitWeightCost, Call, MaxInstructions>;
 	type BaseXcmWeight = BaseXcmWeight;
 	type LocationInverter = LocationInverter<Ancestry>;
+	type MaxAssetsForTransfer = MaxAssetsForTransfer;
 }
 
 impl orml_xcm::Config for Runtime {
@@ -304,7 +311,7 @@ construct_runtime!(
 		Tokens: orml_tokens::{Pallet, Storage, Event<T>, Config<T>},
 		XTokens: orml_xtokens::{Pallet, Storage, Call, Event<T>},
 
-		PolkadotXcm: pallet_xcm::{Pallet, Call, Event<T>, Origin},
+		AxiaXcm: pallet_xcm::{Pallet, Call, Event<T>, Origin},
 		OrmlXcm: orml_xcm::{Pallet, Call, Event<T>},
 	}
 );
